@@ -8,17 +8,17 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-var items = []
+let items = []
 
 app.get('/', (req, res) => {
-  var today = new Date();
+  let today = new Date();
 
-  var options = {
+  let options = {
     weekday: 'long',
     day: 'numeric',
     month: 'long'
   };
-  var day = today.toLocaleDateString("en-US", options);
+  let day = today.toLocaleDateString("en-US", options);
 
   res.render('index', {day: day, items: items})
 
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 // POST method route
 app.post('/', function (req, res) {
-  var item = req.body.newItem;
+  let item = req.body.newItem;
   items.push(item);
   res.redirect('/');
 })
